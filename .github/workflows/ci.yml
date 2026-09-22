@@ -1,6 +1,7 @@
 name: Bartosz CI/CD pipeline
 
 on:
+    workflow_dispatch:
     push:
       branches:
         - master
@@ -32,7 +33,7 @@ jobs:
 
       - name: Print current version
         run: python --version
-        
+
       - name: Install dependencies
         run: pip install -r requirements.txt
       
