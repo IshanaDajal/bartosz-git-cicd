@@ -38,14 +38,12 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Pytest
-        run: pytest --junit-xml=path
+        run: pytest --junit-xml=test_results.xml ./tests/account_tests.py/
 
       - name: Publish Test Results
         uses: EnricoMi/publish-unit-test-result-action@v2
         if: (!cancelled())
         with:
             files: |
-              test-results/**/*.xml
-              test-results/**/*.trx
-              test-results/**/*.json
+              *test_results.xml
 
